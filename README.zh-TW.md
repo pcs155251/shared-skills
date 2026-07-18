@@ -13,11 +13,19 @@
 
 ## 安裝
 
+前置需求一 — git(若 `git --version` 已可執行則跳過):
+
+- Windows:`winget install Git.Git`(PowerShell 或 CMD 皆可),或到 [git-scm.com](https://git-scm.com/downloads) 下載安裝
+- Mac:`xcode-select --install`(或 `brew install git`)
+- Linux:`sudo apt install git`(Debian/Ubuntu)
+
+接著 clone 本 repo:
+
 ```
 git clone https://github.com/pcs155251/shared-skills.git ~/.claude/skills/shared-skills
 ```
 
-唯一的前置需求是 uv(它會自行下載 Python 與所有套件):
+前置需求二 — uv(它會自行下載 Python 與所有套件):
 
 - Mac/Linux:`curl -LsSf https://astral.sh/uv/install.sh | sh`
 - Windows:`winget install astral-sh.uv` — 在 **PowerShell 或 CMD** 執行皆可(winget 為 Windows 10/11 內建)。若沒有 winget,改用 PowerShell:`powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"`

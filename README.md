@@ -14,11 +14,19 @@ skill folder works three ways:
 
 ## Install
 
+Prerequisite 1 — git (skip if `git --version` already works):
+
+- Windows: `winget install Git.Git` (PowerShell or CMD), or download from [git-scm.com](https://git-scm.com/downloads)
+- Mac: `xcode-select --install` (or `brew install git`)
+- Linux: `sudo apt install git` (Debian/Ubuntu)
+
+Then clone the repo:
+
 ```
 git clone https://github.com/pcs155251/shared-skills.git ~/.claude/skills/shared-skills
 ```
 
-The only prerequisite is uv (it bootstraps Python and all packages itself):
+Prerequisite 2 — uv (it bootstraps Python and all packages itself):
 
 - Mac/Linux: `curl -LsSf https://astral.sh/uv/install.sh | sh`
 - Windows: `winget install astral-sh.uv` — run in **PowerShell or CMD**, either works (winget is built into Windows 10/11). If winget is unavailable, use PowerShell: `powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"`
