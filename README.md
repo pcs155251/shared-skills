@@ -23,7 +23,7 @@ git clone <this-repo-url> ~/.claude/skills/shared-skills
 The only prerequisite is uv (it bootstraps Python and all packages itself):
 
 - Mac/Linux: `curl -LsSf https://astral.sh/uv/install.sh | sh`
-- Windows: `winget install astral-sh.uv`
+- Windows: `winget install astral-sh.uv` — run in **PowerShell or CMD**, either works (winget is built into Windows 10/11). If winget is unavailable, use PowerShell: `powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"`
 
 ### Skills
 
@@ -53,7 +53,7 @@ git clone <本repo網址> ~/.claude/skills/shared-skills
 唯一的前置需求是 uv(它會自行下載 Python 與所有套件):
 
 - Mac/Linux:`curl -LsSf https://astral.sh/uv/install.sh | sh`
-- Windows:`winget install astral-sh.uv`
+- Windows:`winget install astral-sh.uv` — 在 **PowerShell 或 CMD** 執行皆可(winget 為 Windows 10/11 內建)。若沒有 winget,改用 PowerShell:`powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"`
 
 ### 技能列表
 

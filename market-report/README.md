@@ -18,7 +18,7 @@ Only [uv](https://docs.astral.sh/uv/) is needed — it downloads Python and all
 packages itself:
 
 - Mac/Linux: `curl -LsSf https://astral.sh/uv/install.sh | sh`
-- Windows: `winget install astral-sh.uv`
+- Windows: `winget install astral-sh.uv` — run in **PowerShell or CMD**, either works (winget is built into Windows 10/11). If winget is unavailable, use PowerShell: `powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"`
 
 ### Usage
 
@@ -66,7 +66,7 @@ command; `SKILL.md` is the thin adapter that points Claude at `AGENTS.md`.
 只需要 [uv](https://docs.astral.sh/uv/) — 它會自行下載 Python 與所有套件:
 
 - Mac/Linux:`curl -LsSf https://astral.sh/uv/install.sh | sh`
-- Windows:`winget install astral-sh.uv`
+- Windows:`winget install astral-sh.uv` — 在 **PowerShell 或 CMD** 執行皆可(winget 為 Windows 10/11 內建)。若沒有 winget,改用 PowerShell:`powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"`
 
 ### 使用方式
 
