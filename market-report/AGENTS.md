@@ -40,12 +40,12 @@ directory.
    Rewrite it for the new dataset — with any AI or by hand; its `{placeholders}`
    stay auto-filled. Skipping this step still yields a numerically correct deck,
    just with possibly outdated interpretation.
-3. **Build:** `uv run --project "<dir>" "<dir>/build_deck.py" "<xlsx>" "<out.pptx>" [建案名稱 ...]`
-   where `<dir>` is the directory containing this file — trailing args are the
-   消控表 projects (omit for the top-3 default; the script warns and skips names
-   not in the data). `--project` makes uv use the bundled pyproject.toml/uv.lock
-   regardless of the current directory. Done when it prints `saved` and the pptx
-   opens cleanly.
+3. **Build:** `uv run --project "<repo>" "<repo>/market-report/build_deck.py" "<xlsx>" "<out.pptx>" [建案名稱 ...]`
+   where `<repo>` is the repository root (the parent of the directory containing
+   this file — the environment is shared by all skills in the repo, defined by
+   the root pyproject.toml/uv.lock). Trailing args are the 消控表 projects (omit
+   for the top-3 default; the script warns and skips names not in the data).
+   Done when it prints `saved` and the pptx opens cleanly.
 4. **Eyeball the output.** Check the histogram for label collisions; verify each
    消控表 legend's counts sum to that grid's filled cells; read the script's
    warnings for unparseable 棟及號 rows.

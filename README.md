@@ -23,6 +23,12 @@ The only prerequisite is uv (it bootstraps Python and all packages itself):
 - Mac/Linux: `curl -LsSf https://astral.sh/uv/install.sh | sh`
 - Windows: `winget install astral-sh.uv` — run in **PowerShell or CMD**, either works (winget is built into Windows 10/11). If winget is unavailable, use PowerShell: `powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"`
 
+**One shared environment.** All skills share the environment defined by the
+root `pyproject.toml`/`uv.lock` — you install once, and any `uv run` inside the
+repo sets it up automatically on first use. When a future skill adds a
+dependency, just `git pull` — the next `uv run` updates the environment to the
+new lockfile by itself.
+
 ## Skills
 
 | Skill | Command | What it does |

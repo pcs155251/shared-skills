@@ -20,15 +20,20 @@ packages itself:
 
 ## Usage
 
+Run from inside this folder (or anywhere in the repo — the environment is the
+shared one defined at the repo root):
+
 ```
 uv run build_deck.py <pricelist.xlsx> <output.pptx> [建案名稱 ...]
 ```
 
+From outside the repo, add `--project <repo-root>`.
+
 - Trailing 建案名稱 choose which projects get a 消控表 slide; omit them to
   default to the top-3 by transaction count. Unknown names are warned and
   skipped.
-- First run creates the environment automatically (locked by `uv.lock`);
-  afterwards it starts instantly.
+- First run creates the environment automatically (locked by the root
+  `uv.lock`); afterwards it starts instantly.
 - Charts need a Traditional-Chinese font: Windows/WSL (JhengHei) and macOS
   (PingFang) work out of the box; on Linux install Noto
   (`sudo apt install fonts-noto-cjk`).

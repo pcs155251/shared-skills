@@ -22,6 +22,11 @@ git clone <本repo網址> ~/.claude/skills/shared-skills
 - Mac/Linux:`curl -LsSf https://astral.sh/uv/install.sh | sh`
 - Windows:`winget install astral-sh.uv` — 在 **PowerShell 或 CMD** 執行皆可(winget 為 Windows 10/11 內建)。若沒有 winget,改用 PowerShell:`powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"`
 
+**共用單一環境。** 所有技能共用 repo 根目錄 `pyproject.toml`/`uv.lock`
+定義的環境 — 只需安裝一次,repo 內任何 `uv run` 首次執行時會自動建好環境。
+未來新技能若新增相依套件,只要 `git pull`,下一次 `uv run` 就會自動依新的
+lockfile 更新環境。
+
 ## 技能列表
 
 | 技能 | 指令 | 功能 |
