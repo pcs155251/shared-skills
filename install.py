@@ -14,7 +14,9 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parent
 DEST = Path.home() / ".claude" / "skills"
-ENV_FILES = ["pyproject.toml", "uv.lock"]
+# AGENTS.md: skill AGENTS.md files point to ../AGENTS.md for repo-wide
+# conventions, so it must land at the skills root too.
+ENV_FILES = ["pyproject.toml", "uv.lock", "AGENTS.md"]
 
 def main():
     DEST.mkdir(parents=True, exist_ok=True)
@@ -36,7 +38,7 @@ def main():
         f = REPO / name
         if f.exists() and f.resolve() != (DEST / name).resolve():
             shutil.copy2(f, DEST / name)
-            print(f"✓ {name} → {DEST / name}  (shared environment)")
+            print(f"✓ {name} → {DEST / name}  (shared file)")
 
     print("\n完成!請重新啟動 Claude Code / 桌面 App,新視窗即可使用 / 指令。")
     print("Done! Restart Claude Code / the desktop app; new sessions will "
