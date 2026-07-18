@@ -19,17 +19,17 @@
 - Mac:`xcode-select --install`(或 `brew install git`)
 - Linux:`sudo apt install git`(Debian/Ubuntu)
 
-接著 clone 本 repo — Mac/Linux/WSL:
+接著 clone 本 repo(任何位置皆可,例如 `~/shared-skills`)— Mac/Linux/WSL:
 
 ```
-git clone https://github.com/pcs155251/shared-skills.git ~/.claude/skills/shared-skills
+git clone https://github.com/pcs155251/shared-skills.git ~/shared-skills
 ```
 
 Windows PowerShell(請用 `$HOME`,不要用 `~` — PowerShell 會把 `~` 原樣傳給
 git,產生一個名字就叫 `~` 的資料夾):
 
 ```
-git clone https://github.com/pcs155251/shared-skills.git "$HOME\.claude\skills\shared-skills"
+git clone https://github.com/pcs155251/shared-skills.git "$HOME\shared-skills"
 ```
 
 前置需求二 — uv(它會自行下載 Python 與所有套件):
@@ -37,10 +37,26 @@ git clone https://github.com/pcs155251/shared-skills.git "$HOME\.claude\skills\s
 - Mac/Linux:`curl -LsSf https://astral.sh/uv/install.sh | sh`
 - Windows:`winget install astral-sh.uv` — 在 **PowerShell 或 CMD** 執行皆可(winget 為 Windows 10/11 內建)。若沒有 winget,改用 PowerShell:`powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"`
 
-**共用單一環境。** 所有技能共用 repo 根目錄 `pyproject.toml`/`uv.lock`
-定義的環境 — 只需安裝一次,repo 內任何 `uv run` 首次執行時會自動建好環境。
-未來新技能若新增相依套件,只要 `git pull`,下一次 `uv run` 就會自動依新的
-lockfile 更新環境。
+最後,在 clone 下來的資料夾內執行安裝程式:
+
+```
+cd ~/shared-skills        # Windows:cd "$HOME\shared-skills"
+uv run install.py
+```
+
+它會把每個技能複製到 `~/.claude/skills/` — Claude Code 只會偵測**直接**放在
+該資料夾下的技能(不支援子資料夾或符號連結),所以只 clone 是不夠的。
+重新啟動 Claude Code / 桌面 App 後,新視窗就會出現 `/` 指令。
+
+**更新**(新技能、新相依套件,一組指令搞定):
+
+```
+git pull && uv run install.py
+```
+
+**共用單一環境。** 所有技能共用 `pyproject.toml`/`uv.lock` 定義的環境
+(會隨技能一起安裝)— 第一次 `uv run` 自動建好環境,更新後下一次
+`uv run` 也會自動依新的 lockfile 重新同步。
 
 ## 技能列表
 

@@ -20,17 +20,17 @@ Prerequisite 1 — git (skip if `git --version` already works):
 - Mac: `xcode-select --install` (or `brew install git`)
 - Linux: `sudo apt install git` (Debian/Ubuntu)
 
-Then clone the repo — Mac/Linux/WSL:
+Then clone the repo (any location — `~/shared-skills` is fine) — Mac/Linux/WSL:
 
 ```
-git clone https://github.com/pcs155251/shared-skills.git ~/.claude/skills/shared-skills
+git clone https://github.com/pcs155251/shared-skills.git ~/shared-skills
 ```
 
 Windows PowerShell (use `$HOME`, not `~` — PowerShell passes a literal `~` to
 git, creating a folder actually named `~`):
 
 ```
-git clone https://github.com/pcs155251/shared-skills.git "$HOME\.claude\skills\shared-skills"
+git clone https://github.com/pcs155251/shared-skills.git "$HOME\shared-skills"
 ```
 
 Prerequisite 2 — uv (it bootstraps Python and all packages itself):
@@ -38,11 +38,28 @@ Prerequisite 2 — uv (it bootstraps Python and all packages itself):
 - Mac/Linux: `curl -LsSf https://astral.sh/uv/install.sh | sh`
 - Windows: `winget install astral-sh.uv` — run in **PowerShell or CMD**, either works (winget is built into Windows 10/11). If winget is unavailable, use PowerShell: `powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"`
 
-**One shared environment.** All skills share the environment defined by the
-root `pyproject.toml`/`uv.lock` — you install once, and any `uv run` inside the
-repo sets it up automatically on first use. When a future skill adds a
-dependency, just `git pull` — the next `uv run` updates the environment to the
-new lockfile by itself.
+Finally, run the installer from inside the cloned folder:
+
+```
+cd ~/shared-skills        # Windows: cd "$HOME\shared-skills"
+uv run install.py
+```
+
+It copies each skill into `~/.claude/skills/` — Claude Code only discovers
+skills sitting *directly* in that folder (no subfolders, no symlinks), which is
+why a plain clone isn't enough. Restart Claude Code / the desktop app and the
+`/` commands appear in new sessions.
+
+**Updating** (new skills, new dependencies — one command pair covers both):
+
+```
+git pull && uv run install.py
+```
+
+**One shared environment.** All skills share the environment defined by
+`pyproject.toml`/`uv.lock` (installed alongside the skills) — the first
+`uv run` sets it up automatically, and after an update the next `uv run`
+re-syncs it to the new lockfile by itself.
 
 ## Skills
 
