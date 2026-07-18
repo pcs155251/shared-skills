@@ -20,10 +20,17 @@ Prerequisite 1 — git (skip if `git --version` already works):
 - Mac: `xcode-select --install` (or `brew install git`)
 - Linux: `sudo apt install git` (Debian/Ubuntu)
 
-Then clone the repo:
+Then clone the repo — Mac/Linux/WSL:
 
 ```
 git clone https://github.com/pcs155251/shared-skills.git ~/.claude/skills/shared-skills
+```
+
+Windows PowerShell (use `$HOME`, not `~` — PowerShell passes a literal `~` to
+git, creating a folder actually named `~`):
+
+```
+git clone https://github.com/pcs155251/shared-skills.git "$HOME\.claude\skills\shared-skills"
 ```
 
 Prerequisite 2 — uv (it bootstraps Python and all packages itself):

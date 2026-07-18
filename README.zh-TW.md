@@ -19,10 +19,17 @@
 - Mac:`xcode-select --install`(或 `brew install git`)
 - Linux:`sudo apt install git`(Debian/Ubuntu)
 
-接著 clone 本 repo:
+接著 clone 本 repo — Mac/Linux/WSL:
 
 ```
 git clone https://github.com/pcs155251/shared-skills.git ~/.claude/skills/shared-skills
+```
+
+Windows PowerShell(請用 `$HOME`,不要用 `~` — PowerShell 會把 `~` 原樣傳給
+git,產生一個名字就叫 `~` 的資料夾):
+
+```
+git clone https://github.com/pcs155251/shared-skills.git "$HOME\.claude\skills\shared-skills"
 ```
 
 前置需求二 — uv(它會自行下載 Python 與所有套件):
