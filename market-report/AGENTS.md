@@ -6,6 +6,9 @@ human operator; `build_deck.py` beside it is the single source of truth for all
 layout, colors, and slide content — edit it there, never in a one-off script.
 No other input files are needed.
 
+Repo-wide conventions — including **interacting with the user in 繁體中文** —
+live in [`../AGENTS.md`](../AGENTS.md); read it first.
+
 **Inputs:** (1) the pricelist xlsx path, from the user; (2) the 建案名稱 that get
 a 消控表 — ask the user which projects they want, check each answer exists in
 the xlsx's 建案名稱 column, and when a name is absent or the user gives no
