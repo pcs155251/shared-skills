@@ -14,7 +14,7 @@
 ## 安裝
 
 ```
-git clone <本repo網址> ~/.claude/skills/shared-skills
+git clone https://github.com/pcs155251/shared-skills.git ~/.claude/skills/shared-skills
 ```
 
 唯一的前置需求是 uv(它會自行下載 Python 與所有套件):

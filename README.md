@@ -15,7 +15,7 @@ skill folder works three ways:
 ## Install
 
 ```
-git clone <this-repo-url> ~/.claude/skills/shared-skills
+git clone https://github.com/pcs155251/shared-skills.git ~/.claude/skills/shared-skills
 ```
 
 The only prerequisite is uv (it bootstraps Python and all packages itself):
